@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 //iniciar express
 const app = express();
 
+import usuarioRoutes from "./routes/usuario";
+import authRoutes from "./routes/auth";
 
 // middlewares
 app.use(morgan('combined'));
@@ -14,7 +16,8 @@ app.use(express.urlencoded({extended: false}));
 // Headers para la api
 app.use(cors());
 
-
+//Variables ocultas .env
+dotenv.config(); 
 //routes
 //app.use(require('./routes/index'));
 
@@ -36,5 +39,5 @@ app.listen(PORT, () => {
 
 //Rutas iniciales de la API
 //app.use("/grupo-m", earthquakesRoutes);
-//app.use("/grupo-m/auth", authRoutes);
-//app.use("/grupo-m/usuario", userRoutes);
+app.use("/api/usuario", usuarioRoutes);
+app.use("/api/auth", authRoutes);

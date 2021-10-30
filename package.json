@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node  src/index.js --exec babel-node",
+    "build": "babel src --out-dir dist",
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node  src/index.js --exec babel-node"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +29,8 @@
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "xlsx": "^0.17.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",

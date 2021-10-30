@@ -12,6 +12,7 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/usuarioControllers";
+import { appendFile } from "fs";
 
 //RUTAS
 const router = Router();
