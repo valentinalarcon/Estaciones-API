@@ -7,8 +7,8 @@ async function scrapping(){
         uri:'https://climatologia.meteochile.gob.cl/application/diario/boletinClimatologicoDiario/actual',
         transform: body => cheerio.load(body)
     });
-
-        const result = $(".table.table-bordered").find('tr').map((i, el) => ({
+        const fecha = $('#cabezera > strong');
+        const aux = $(".table.table-bordered").find('tr').map((i, el) => ({
             ciudad: $(el).find(`td:nth-of-type(1)`).text().trim(),
             valormin: $(el).find(`td:nth-of-type(2)`).text().trim(),
             horarmin: $(el).find(`td:nth-of-type(3)`).text().trim(),
@@ -23,19 +23,17 @@ async function scrapping(){
         })).get();
 
         //Eliminamos las dos primeras filas de la tabla  
-        result.shift();
-        result.shift();
-        console.log(result)
-        const aux = JSON.stringify(result);
+        aux.shift();
+        aux.shift();
+        //console.log(aux);
 
-
-          if (result.length != 0) {
-            //Si el arreglo tiene algun registro que no estÃ¡ en la base de datos se agrega
-            for (var i = result.length - 1; i >= 0; i--) {
+  
+          if (aux.length != 0) {
+            for (var i = 0; i < aux.length; i++) {
                 const consulta = await Pool.query(
                   "INSERT INTO estacion (nombre,latitud,longitud,altura) VALUES ($1,$2,$3,$4)",
                   [
-                    aux[i].nombre,
+                    aux[i].ciudad,
                     aux[i].latitud,
                     aux[i].longitud,
                     aux[i].altura
@@ -48,7 +46,7 @@ async function scrapping(){
           }
         
 
-        return (result);
+        return (aux);
 
 }
 export default scrapping();

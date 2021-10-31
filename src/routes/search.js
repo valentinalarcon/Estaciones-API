@@ -7,7 +7,7 @@ import { validateJwt } from "../middlewares/validateJWT";
 import { isEmailValid, existUserForId } from "../helpers/db-validators";
 //Controllers
 import {
- //crear consultas
+ getSearch
 } from "../controllers/search-controllers";
 //import { appendFile } from "fs";
 
