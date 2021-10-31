@@ -4,17 +4,17 @@ import { Router } from "express";
 import { validateJwt } from "../middlewares/validateJWT";
 import { validarURL } from "../middlewares/validation";
 //Controllers
-/*import {
-  getSismos,
-  getSismoById,
-} from "../controllers/earthquakes-controllers"; */
+import {
+  getStations,
+  getStationsById,
+}from "../controllers/stations-controllers"; 
 //Rutas
 const router = Router();
 
 //GET
 //Valida si existe un token valido en el header de la peticion
-router.get("/earthquakes", validateJwt, getSismos);
+router.get("/stations", validateJwt, getStations);
 
-router.get("/earthquakes/:id", validateJwt, getSismoById);
+router.get("/stations/:id", validateJwt, getStationsById);
 
 export default router;

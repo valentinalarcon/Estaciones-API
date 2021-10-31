@@ -32,7 +32,9 @@ router.post(
 //GET
 router.get(
   "/get/:id",
-  [check("id").custom(existUserForId), validarCampos],
+  [check("id").custom(existUserForId),
+   validarCampos
+  ],
   getUser
 );
 

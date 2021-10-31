@@ -1,5 +1,6 @@
 //Para realizar validaciones
 import { validationResult } from "express-validator";
+import zonaLocal from "../helpers/fecha";
 
 //Funcion que verifica la url de la peticion
 export const validarURL = (req, res, next) => {

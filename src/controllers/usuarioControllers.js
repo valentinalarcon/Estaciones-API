@@ -4,6 +4,7 @@ import bcryptjs from "bcryptjs";
 //Funcion para crear un usuario
 export const createUser = async (req, res) => {
   const { nombre, correo, password } = req.body;
+  //console.log(req.body);
   try {
     //Encriptar la contraseña
     const saltos = bcryptjs.genSaltSync();
@@ -28,10 +29,12 @@ export const createUser = async (req, res) => {
 
 // Funcion que obtiene el usuario por medio de su id
 export const getUser = async (req, res) => {
+  console.log(id);
   const { id } = req.params;
+  
   try {
     const consulta = await Pool.query(
-      "SELECT * FROM usuario WHERE id_usuario = $1",
+      "SELECT * FROM usuario WHERE id = $1",
       [id]
     );
 
@@ -41,7 +44,7 @@ export const getUser = async (req, res) => {
     if (consulta) {
       res.status(200).json({
         data: {
-          id_usuario: respuesta.id_usuario,
+          id: respuesta.id,
           nombre: respuesta.nombre,
           correo: respuesta.correo,
         },
@@ -63,7 +66,7 @@ export const updateUser = async (req, res) => {
     const passEncrypted = bcryptjs.hashSync(password, saltos);
 
     const consulta = await Pool.query(
-      "UPDATE usuario SET nombre=$1, correo=$2, password=$3 WHERE id_usuario=$4",
+      "UPDATE usuario SET nombre=$1, correo=$2, password=$3 WHERE id=$4",
       [nombre, correo, passEncrypted, id]
     );
 
@@ -83,11 +86,11 @@ export const deleteUser = async (req, res) => {
   const { id } = req.params;
   try {
     const consultaNombre = await Pool.query(
-      "SELECT nombre FROM usuario WHERE id_usuario=$1",
+      "SELECT nombre FROM usuario WHERE id=$1",
       [id]
     );
     const consulta = await Pool.query(
-      "DELETE FROM usuario WHERE id_usuario=$1",
+      "DELETE FROM usuario WHERE id=$1",
       [id]
     );
 
