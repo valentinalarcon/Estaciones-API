@@ -30,7 +30,7 @@ export const validateJwt = async (req, res, next) => {
       [uid]
     );
     // const userAuth = await User.findById(uid);
-    //console.log(userAuth);
+    console.log(userAuth);
     //Verifico si el usuario auth existe
     if (userAuth.rowCount == 0) {
       return res.status(403).json({

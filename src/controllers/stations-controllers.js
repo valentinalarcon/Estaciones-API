@@ -4,10 +4,7 @@ import zonaLocal from "../helpers/fecha";
 //Peticion para obtener los 15 primeros datos de la bd
 export const getStations = async (req, res) => {
   try {
-    console.log("wiow");
-    const consulta = await Pool.query("SELECT * FROM mes");
-    console.log(consulta);
-
+    const consulta = await Pool.query("SELECT * FROM mes");    
       
     if (consulta.rowCount != 0) {
       res.status(200).json({

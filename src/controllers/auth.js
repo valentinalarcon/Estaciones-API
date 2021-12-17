@@ -36,7 +36,7 @@ export const login = async (req, res) => {
   }
 
   //Generar el JWT
-  const token = await generateJwt(user.rows[0].id_usuario);
+  const token = await generateJwt(user.rows[0].id);
 
   res.status(200).json({
     user: user.rows[0],

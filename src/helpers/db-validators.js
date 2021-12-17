@@ -18,7 +18,7 @@ export const isEmailValid = async (email = "") => {
 export const existUserForId = async (id) => {
   //Buscará si el id ya se encuentra en algun otra tabla admin
   const existeUser = await Pool.query(
-    "SELECT id_usuario FROM usuario WHERE id_usuario=$1",
+    "SELECT id FROM usuario WHERE id=$1",
     [id]
   );
 

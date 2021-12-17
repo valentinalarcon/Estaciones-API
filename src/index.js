@@ -7,11 +7,16 @@ import dotenv from "dotenv";
 //rutas
 import usuarioRoutes from "./routes/usuario";
 import authRoutes from "./routes/auth";
-//import stationsRoutes from "./routes/stations";
+import stationsRoutes from "./routes/stations";
+
 //import searchRoutes from "./routes/search";
 
+
+import datos from "./controllers/xlsx";
 //scrapping
 import scrapping from "./controllers/scrapping";
+
+
 
 //Variables ocultas .env
 dotenv.config(); 
@@ -27,7 +32,7 @@ app.use(cors());
 //
 app.use("/api/usuario", usuarioRoutes);
 app.use("/api/auth", authRoutes);
-//app.use("/api", stationsRoutes);
+app.use("/api", stationsRoutes);
 //app.use("/api", searchRoutes);
 
 //Se declara el puerto en el que correrá el servidor por medio de .env o asignandole por defecto el port:3000
