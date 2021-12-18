@@ -51,7 +51,7 @@ _Para el desarrollo de este proyecto utilizamos_
 
   
 
-* [PostreSql](https://www.postgresql.org) - Para trabajar la base de datos
+* [PostgreSql](https://www.postgresql.org) - Para trabajar la base de datos
 
 * [Flutter](https://flutter.dev) - kit de herramientas de UI de Google
 
