@@ -57,7 +57,7 @@ _Para el desarrollo de este proyecto utilizamos_
 
 * [NodeJs](https://nodejs.org/es/) - Entorno en tiempo de ejecución multiplataforma
 
-* [Android Studio](https://developer.android.com/studio?hl=es-419&gclid=CjwKCAiAh_GNBhAHEiwAjOh3ZFPHJ6YT_b_4yA3M0rWrrAO1J-fIPlSCefDxaVDssBj5y-xSZjpxIRoCBpoQAvD_BwE&gclsrc=aw.ds) - Usado para generar RSS
+* [Android Studio](https://developer.android.com/studio?hl=es-419&gclid=CjwKCAiAh_GNBhAHEiwAjOh3ZFPHJ6YT_b_4yA3M0rWrrAO1J-fIPlSCefDxaVDssBj5y-xSZjpxIRoCBpoQAvD_BwE&gclsrc=aw.ds) - Usado para programar la app
 
 
   
