@@ -4,30 +4,27 @@ import Pool from "../database/connection";
 
 // Funcion que obtener datos por indicador
 export const getSearch = async (req, res) => {
-  const { indicador, fecha_ini, fecha_ter } = req.params;
-  
-  try {
-    const consulta = await Pool.query(
-      "SELECT n.nombre AS indicador, a.ano AS ano, m.mes AS mes, i.dia AS dia, i.num as valor FROM informe i JOIN mes m on i.id_mes = m.id_mes JOIN ano a on i.id_ano = a.id_ano JOIN indicador n on i.id_indicador = n.id_indicador WHERE id_indicador = $1 ",
-      [indicador]
-    );
+  const { indicador, finicio, ffinal } = req.body;
 
-    //datos de la respuesta de la consulta anterior
-    const respuesta = consulta.rows[0];
-
-    if (consulta) {
-      res.status(200).json({
-        data: {
-          id: respuesta.id,
-          nombre: respuesta.nombre,
-          correo: respuesta.correo,
-        },
-      });
+  //Separando las fecha en dia, mes y ano
+  var dia_inicio = '',dia_final= '', mes_inicio = '', mes_final = '', ano_inicio = '', ano_final = '';
+  for (var i = 0; i<finicio.length; i++){
+    if(i==0 || i==1){
+      dia_inicio+=finicio[i];
+      dia_final+=ffinal[i]
     }
-  } catch (error) {
-    console.log(error);
-    res.json({ msg: error });
+    if(i==3 || i==4){
+      mes_inicio+=finicio[i];
+      mes_final+=ffinal[i]
+    }
+    if(i==6 || i==7 || i==8 || i==9){
+      ano_inicio+=finicio[i];
+      ano_final+=ffinal[i]
+    }
   }
+  
+  console.log( "años", ano_inicio,ano_final);
+
 };
 
 export default { getSearch };
