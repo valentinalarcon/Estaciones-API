@@ -24,25 +24,3 @@ CREATE TABLE IF NOT EXISTS informe(
     tmin numeric,
     precip numeric
 );
-
-INSERT INTO mes (mes, numero) VALUES ('enero', '1');
-INSERT INTO mes (mes, numero) VALUES ('febrero', '2');
-INSERT INTO mes (mes, numero) VALUES ('marzo', '3');
-INSERT INTO mes (mes, numero) VALUES ('abril', '4');
-INSERT INTO mes (mes, numero) VALUES ('mayo', '5');
-INSERT INTO mes (mes, numero) VALUES ('junio', '6');
-INSERT INTO mes (mes, numero) VALUES ('julio', '7');
-INSERT INTO mes (mes, numero) VALUES ('agosto', '8');
-INSERT INTO mes (mes, numero) VALUES ('septiembre', '9');
-INSERT INTO mes (mes, numero) VALUES ('octubre', '10');
-INSERT INTO mes (mes, numero) VALUES ('noviembre', '11');
-INSERT INTO mes (mes, numero) VALUES ('diciembre', '12');
-
-INSERT INTO indicador (nombre) VALUES ('precipitacion');
-INSERT INTO indicador (nombre) VALUES ('tem_maxima');
-INSERT INTO indicador (nombre) VALUES ('temp_minima');
-
-
-
-INSERT INTO users (name, email) VALUES
-('Alonso', 'alonso.pinoo@gmail.com');

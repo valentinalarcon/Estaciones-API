@@ -3,7 +3,6 @@ import XLSX from "xlsx";
 import Pool from "../database/connection";
 
 export const excel = async() => {
-console.log("/xlsx");
     var dataExcel;
     function LeerExcel(ruta){
         const workbook = XLSX.readFile(ruta);

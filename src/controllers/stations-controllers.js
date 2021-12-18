@@ -4,7 +4,7 @@ import zonaLocal from "../helpers/fecha";
 //Peticion para obtener los 15 primeros datos de la bd
 export const getStations = async (req, res) => {
   try {
-    const consulta = await Pool.query("SELECT * FROM mes");    
+    const consulta = await Pool.query("SELECT * FROM estacion");    
       
     if (consulta.rowCount != 0) {
       res.status(200).json({
@@ -28,17 +28,17 @@ export const getStationsById = async (req, res) => {
   const { id } = req.params;
   try {
     const consulta = await Pool.query(
-      "SELECT * FROM estacion WHERE id_estacion=$1",
+      "SELECT * FROM estacion WHERE codigo=$1",
       [id]
     );
 
-    const sismo = consulta.rows[0];
+    const stations = consulta.rows[0];
 
-    if (sismo) {
+    if (stations) {
       res.status(200).json({
         status: "200",
         tipoMIME: "application/json",
-        sismo,
+        stations,
       });
     }
   } catch (error) {

@@ -7,7 +7,7 @@ import { validateJwt } from "../middlewares/validateJWT";
 import { isEmailValid, existUserForId } from "../helpers/db-validators";
 //Controllers
 import {
- getSearch
+  getSearch
 } from "../controllers/search-controllers";
 //import { appendFile } from "fs";
 
@@ -18,8 +18,8 @@ router.post(
   "/search",
   [
     check("indicador", "El indicador es obligatorio").not().isEmpty(),
-    check("fecha-inicio", "La fecha es obligatoria").not().isEmpty(),
-    check("fecha-final", "La fecha es obligatoria").not().isEmpty(),
+    check("finicio", "La fecha es obligatoria").not().isEmpty(),
+    check("ffinal", "La fecha es obligatoria").not().isEmpty(),
     validarCampos,
   ],
   getSearch

@@ -4,7 +4,7 @@ import { check } from "express-validator";
 import { validarCampos } from "../middlewares/validation";
 import { validateJwt } from "../middlewares/validateJWT";
 //Helpers
-import { existIndicador } from "../helpers/db-validators";
+//import { existIndicador } from "../helpers/db-validators";
 //Controllers
 import {
  getEstimate
@@ -14,12 +14,7 @@ import {
 //RUTAS
 const router = Router();
 //GET
-router.get(
-    "/get/:indicador",
-    [check("indicador").custom(existIndicador),
-     validarCampos
-    ],
-    getEstimate
-  );
+router.get("/:indicador/:latitud/:longitud/estimate", getEstimate);
+
 
 export default router;

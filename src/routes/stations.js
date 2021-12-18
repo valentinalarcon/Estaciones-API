@@ -13,8 +13,8 @@ const router = Router();
 
 //GET
 //Valida si existe un token valido en el header de la peticion
-router.get("/stations", validateJwt, getStations);
+router.get("/stations", getStations);
 
-router.get("/stations/:id", validateJwt, getStationsById);
+router.get("/stations/:id", getStationsById);
 
 export default router;

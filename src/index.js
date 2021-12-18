@@ -8,11 +8,12 @@ import dotenv from "dotenv";
 import usuarioRoutes from "./routes/usuario";
 import authRoutes from "./routes/auth";
 import stationsRoutes from "./routes/stations";
+import searchRoutes from "./routes/search";
+import estimateRoutes from "./routes/estimate";
 
-//import searchRoutes from "./routes/search";
-
-
+//archivos excel
 import datos from "./controllers/xlsx";
+
 //scrapping
 import scrapping from "./controllers/scrapping";
 
@@ -33,7 +34,8 @@ app.use(cors());
 app.use("/api/usuario", usuarioRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api", stationsRoutes);
-//app.use("/api", searchRoutes);
+app.use("/api", searchRoutes);
+app.use("/api", estimateRoutes);
 
 //Se declara el puerto en el que correrá el servidor por medio de .env o asignandole por defecto el port:3000
 const PORT = process.env.PORT || 3000;
