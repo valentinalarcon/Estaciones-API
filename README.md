@@ -32,7 +32,7 @@ INSTALACIONES NECESARIAS
 
   
 
-◾Primero debemos descargar los dos archivos almacenados en la carpeta **Keys** dentro del repositorio y copiarlos en la carpeta ** C:\Users\USUARIO\.android**  ,  reemplazando los archivos del mismo nombre en la carpeta.
+◾Primero debemos descargar los dos archivos almacenados en la carpeta **Keys** dentro del repositorio y copiarlos en la carpeta  C:\Users\USUARIO\.android  ,  reemplazando los archivos del mismo nombre en la carpeta.
 
 ◾Luego debemos crear la base de datos en PostgreSql con el nombre **"EstacionApi"** y sus respectivas tablas. Finalizamos instalando las dependencias npm en el backend con **"npm i"** y corremos con **"npm run dev"**.
 
